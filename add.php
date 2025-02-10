@@ -149,7 +149,7 @@ catch(Exception $e) {
             <div class="row mb-2">
               <label class="col-sm-3 col-form-label">อีเมล</label>
               <div class="col-sm-7">
-                <input type="text" name="stu_email" class="form-control" required placeholder="อีเมล">
+                <input type="email" name="stu_email" class="form-control" required placeholder="อีเมล">
               </div>
             </div>
 
@@ -174,8 +174,7 @@ catch(Exception $e) {
             <div class="row mb-2">
               <label class="col-sm-3 col-form-label">สถานะ</label>
               <div class="col-sm-7">
-                <select class="form-select" name="stu_status" required>
-                  <option value="">-กรุณาเลือก-</option> 
+                <select class="form-select" name="stu_status" required>                  
                   <option value="Active">Active</option>
                   <option value="Graduated">Graduated</option>
                   <option value="Drop">Drop</option>

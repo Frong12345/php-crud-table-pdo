@@ -4,6 +4,7 @@
 
 // echo '<pre>';
 // print_r($_POST);
+// echo '</pre>';
 // exit();
 
 //ไฟล์เชื่อมต่อฐานข้อมูล
@@ -46,9 +47,9 @@ try {
 
 } //catch exception
 catch(Exception $e) {
-  //echo 'Message: ' .$e->GETMessage();
-  //exit;
-   echo '<script>
+    echo 'Message: ' .$e->GETMessage();
+    exit;
+    echo '<script>
              setTimeout(function() {
               swal({
                   title: "เกิดข้อผิดพลาด",

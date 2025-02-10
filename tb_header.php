@@ -1,20 +1,4 @@
-<!-- <thead>
-    <tr class="table-danger">
-    <th width="5%">ลำดับ</th>
-    <th width="25%">ชื่อ</th>
-    <th width="25%">นามสกุล</th>
-    <th width="15%">อีเมล</th>
-    <th width="20%">เบอร์โทร</th>
-    <th width="5%">สาขา</th>
-    <th width="5%">ภาษาโปรแกรมมิ่งที่ชอบ</th>
-    <th width="5%">สถานะ</th>
-    <th width="5%">สถาวันที่ลงทะเบียนเรียนนะ</th>
-    <th width="5%">แก้ไข</th>
-    <th width="5%">ลบ</th>
-    </tr>
-</thead> -->
-
-    <thead class="table-dark text-center">
+    <thead class="table-success text-center">
         <tr>
             <th width="5%">#</th>
             <th width="5%">รหัสนศ</th>

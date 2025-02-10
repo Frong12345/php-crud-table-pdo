@@ -17,7 +17,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Basic CRUD by DevStudents.com 2025</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <?php include "style.php";?> <!-- นำเข้า bootstrap.min.css -->
   </head>
   <body>
 
@@ -25,26 +25,30 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
    <?php include 'menu.php';?>
     <!-- end menu -->
 
-    <!-- start member -->
-    <div class="container">
+    <!-- Start CRUD -->
+    <div class="container custom">
       <div class="row">
-        <div class="col-sm-12"> <br>
-          <h3>รายการสมาชิก <a href="add.php" class="btn btn-info">+เพิ่มข้อมูล</a> </h3>
-          <div class="table-responsive">
-            <table class="table table-striped  table-hover table-responsive table-bordered table-sm">
+        <div class="col-sm-12 "> <br>
+          <?php include "header.php"; ?>
+          <div class="table-responsive"> <!-- ทำมห้ตารางเลื่อนซ้าย-ขวาได้  -->
+            <table class="table table-striped  table-hover table-bordered table-sm">
+              <!-- theader  -->
               <?php include 'tb_header.php'; ?>
+              <!-- tbody -->
               <?php include 'tb_body.php'; ?>
             </table>
           </div>
           <hr>
-          * แยก  header & footer & include  <br>
-          * เปลี่ยนการลบจาก method get to method post ถ้าเวลาเหลือ 
+ 
         </div>
       </div>
-    </div>
+    </div> <!--close container-->
+     <?php include "footer.php";?>
 
+    
+    
 
-    <!-- end member -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- End CRUD -->
+    <?php include "script.php";?> <!-- นำเข้า bootstrap.bundle.min.js -->
   </body>
 </html>

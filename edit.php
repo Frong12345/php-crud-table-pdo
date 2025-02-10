@@ -3,7 +3,7 @@
 require_once 'config/condb.php'; 
 
 //ถ้ามีค่าส่งมาจากฟอร์ม
-    if(isset($_POST['id']) && isset($_POST['id']) && isset($_POST['action']) && $_POST['action']=='edit'){
+    if(isset($_POST['id']) && isset($_POST['action']) && $_POST['action']=='edit'){
 
 // echo '<pre>';
 // print_r($_POST);
@@ -38,9 +38,8 @@ try {
         status=:stu_status,
         favorite_prog=:stu_favpro
 
-
-    WHERE id=:id 
-    ");
+        WHERE id=:id 
+        ");
 
     //bindparam STR // INT
     $stmtUpdate->bindParam(':id', $id, PDO::PARAM_INT);
@@ -90,17 +89,18 @@ catch(Exception $e) {
 
 
 // คิวรี่ข้อมูลมาแสดงในฟอร์มแก้ไข
-if(isset($_GET['id'])){
-      $stmtDataEdit = $condb->prepare("SELECT * FROM tbl_studeninfo WHERE id=:id");
+// รับค่า GET มาจาก Tag <a> ของ button แก้ไข ที่มี ค่าใน array = id=... และ act=edit
+if(isset($_GET['id'])){ //เอาค่า id มาใช้เพื่อ query ข้อมูล
+      $stmtDataEdit = $condb->prepare("SELECT * FROM tbl_studeninfo WHERE id=:id"); // id(ฐานข้อมูล) = :id(GET)
        //bindparam STR // INT
       $stmtDataEdit->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
       $stmtDataEdit->execute();
       $editData = $stmtDataEdit->fetch(PDO::FETCH_ASSOC);
 
-      // echo $stmtDataEdit->rowCount();
+      echo $stmtDataEdit->rowCount();
 
       //นับจำนวนการคิวรี่
-      if($stmtDataEdit->rowCount() !=1){
+      if($stmtDataEdit->rowCount() !=1){ // ใช้ rowCount นับจำนวน row  ว่ามีค่าid = 1 มั้ย ถ้ามากกว่า 1 คือมีค่าidซ้ำ และให้หยุดการทำงาน
           exit();
       }
 }//isset
@@ -125,7 +125,7 @@ if(isset($_GET['id'])){
    <?php include 'menu.php';?>
     <!-- end menu -->
      
-    <!-- start member -->
+    <!-- start CRUD -->
     <div class="container mt-5">
       <div class="row">
         <div class="col-sm-2"></div>
@@ -169,7 +169,7 @@ if(isset($_GET['id'])){
             <div class="row mb-2">
               <label class="col-sm-3 col-form-label">อีเมล</label>
               <div class="col-sm-7">
-                <input type="text" name="stu_email" class="form-control" required placeholder="อีเมล" value="<?=$editData['email'];?>">
+                <input type="email" name="stu_email" class="form-control" required placeholder="อีเมล" value="<?=$editData['email'];?>">
               </div>
             </div>
 
@@ -231,7 +231,7 @@ if(isset($_GET['id'])){
         </div>
       </div>
     </div>
-    <!-- end member -->
+    <!-- end CRUD -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
