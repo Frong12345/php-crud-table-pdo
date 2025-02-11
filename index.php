@@ -19,14 +19,14 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Basic CRUD by DevStudents.com 2025</title>
     <?php include "style.php";?> <!-- นำเข้า bootstrap.min.css -->
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100 overflow-hidden">
 
  <!-- start menu -->
    <?php include 'menu.php';?>
     <!-- end menu -->
 
     <!-- Start CRUD -->
-    <div class="container custom">
+    <div class="container flex-grow-1">
       <div class="row">
         <div class="col-sm-12 "> <br>
           <?php include "header.php"; ?>
